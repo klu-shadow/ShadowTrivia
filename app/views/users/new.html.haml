@@ -1,0 +1,9 @@
+%div
+    = "Register" 
+
+=form_for @user, url: { action: :create } do |f|
+    =f.text_field :first_name, placeholder: "First Name"
+    =f.text_field :last_name, placeholder: "Last Name"
+    =f.text_field :email, placeholder: "Email"
+    =f.text_field :password, placeholder: "Password"
+    =f.submit "Register"
