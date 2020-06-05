@@ -1,7 +1,7 @@
 %div
     = "Register" 
 
-=form_for @user, url: { action: :create } do |f|
+=form_for @user, url: { action: :create }, authenticity_token: true do |f|
     =f.text_field :first_name, placeholder: "First Name"
     =f.text_field :last_name, placeholder: "Last Name"
     =f.text_field :email, placeholder: "Email"
