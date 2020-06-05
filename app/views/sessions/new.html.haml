@@ -1,0 +1,11 @@
+%div
+    = "Log In" 
+
+=form_with scope: :user, local: true, url: session_url, method: "POST", authenticity_token: true do |f|
+    =f.text_field :email, placeholder: "Email"
+    =f.password_field :password, placeholder: "Password"
+    =f.submit "Log In"
+
+
+
+=flash[:error]

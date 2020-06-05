@@ -26,6 +26,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
 
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
@@ -33,6 +34,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user && user.is_password?(password)
+    user
   end
 
   def self.create_dummy(first_name, last_name, email, password)
@@ -44,6 +46,10 @@ class User < ApplicationRecord
     ).save!
   end
 
+  def logged_in? 
+    true
+  end
+  
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
