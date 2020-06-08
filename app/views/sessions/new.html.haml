@@ -1,11 +1,34 @@
-%div
-    = "Log In" 
+-# .hr
 
-=form_with scope: :user, local: true, url: session_url, method: "POST", authenticity_token: true do |f|
-    =f.text_field :email, placeholder: "Email"
-    =f.password_field :password, placeholder: "Password"
-    =f.submit "Log In"
+-# #wrap
+-#   .container
+-#     .row
+-#       .col.login-container
+-#         = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
+-#           .form-group.row
+-#             .login-label Email
+-#             = f.text_field :email, type: 'email', autofocus: 'autofocus', placeholder: 'Your email address...'
+-#           = f.password_field :password, placeholder: 'Your password...'
+-#           = f.submit 'Log In'
 
 
 
-=flash[:error]
+-#         =flash[:error]
+
+.hr
+  #wrap
+    .container
+      .row
+        .col.login-container
+          .login-box
+            = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
+              .form-group.row
+                .login-label Email
+                = f.text_field :email, type: 'email', autofocus: 'autofocus', placeholder: 'Your email address...'
+              .form-group.row
+                .login-label Password
+                = f.password_field :password, placeholder: 'Your password...'  
+              .row
+                .form-group
+                  = f.submit 'Log In'
+            = flash[:error]

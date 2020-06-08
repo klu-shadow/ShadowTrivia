@@ -1,0 +1,42 @@
+body {
+  background: $off-white url("texture.png") repeat;
+}
+
+html,
+body,
+#wrap {
+  height: 100%;
+}
+
+body > #wrap {
+  margin: 0;
+  padding: 0 0 60px 0;
+  height: auto;
+  min-height: 90%;
+  position: relative;
+}
+
+.container {
+  padding-left:0;
+  padding-right:0;
+  width: 1170px !important;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// Nav
+
+div.hr {
+  height: 3px;
+  background: $teal;
+  margin: 0;
+  padding: 0;
+}

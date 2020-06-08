@@ -1,0 +1,34 @@
+.login-container {
+  padding-top: 50px;
+
+}
+
+.login-box {
+  width: 500px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  background: $white;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.login-label {
+  float: left;
+  color: $gray;
+  font-size: 2rem;
+  width: 95px;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input[type]:not([type=submit]) {
+  padding: 14px 30px 14px 8px;
+  margin: 0;
+  width: 70%;
+  float: right;
+  
+}
+
+input[type]:not([type=submit]):focus {
+  outline: none;
+}
