@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :ensure_not_logged, only: [:new, :create]
+  before_action :ensure_logged, only: [:destroy]
+
   def new
       
   end
