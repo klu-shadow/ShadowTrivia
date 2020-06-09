@@ -1,9 +1,33 @@
-%div
-    = "Register" 
-
-=form_for @user, url: { action: :create }, authenticity_token: true do |f|
-    =f.text_field :first_name, placeholder: "First Name"
-    =f.text_field :last_name, placeholder: "Last Name"
-    =f.text_field :email, placeholder: "Email"
-    =f.text_field :password, placeholder: "Password"
-    =f.submit "Register"
+.hr
+  #wrap
+    .container
+      .row
+        .col.session-container
+          %div.shadow-logo
+            = link_to 'Shadow Trivia', new_user_url 
+          .session-box
+            .flash-container
+              = render 'shared/flash_message'
+            = form_for @user, url: { action: :create }, authenticity_token: true do |f|
+              .form-group.row
+                .register-label First Name
+                = f.text_field :first_name, placeholder: 'First Name'
+              .form-group.row
+                .register-label Last Name
+                = f.text_field :last_name, placeholder: 'Last Name'
+              .form-group.row
+                .register-label Email
+                = f.text_field :email, type: 'email', placeholder: 'Email'
+              .form-group.row
+                .register-label Password
+                = f.text_field :password, placeholder: 'Password'
+              .form-group.row
+                .session-submit
+                  =f.submit 'Register', class: 'btn-teal'
+              .row
+                %h3.text-center.strong Already have an account?
+                %h4.text-center Sign in over #{link_to 'here', new_session_url, class: 'strong' } or
+                %h4.text-center Proceed as a #{link_to 'Guest', users_url, class: 'strong'}
+          
+          
+          

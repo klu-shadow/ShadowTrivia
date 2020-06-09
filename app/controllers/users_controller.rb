@@ -11,10 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-        login!(@user)
-        redirect_to users_url
+      login!(@user)
+      redirect_to users_url
     else
-        render json: @user.errors.full_messages, status: 401
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_url
     end
   end
 

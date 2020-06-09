@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       login!(user)
       redirect_to users_url
     else
-      flash[:errors] = "Invalid email address or password."
+      flash[:errors] = ["Invalid email address or password."]
       redirect_to new_session_url
     end
   end

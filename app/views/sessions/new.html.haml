@@ -2,21 +2,21 @@
   #wrap
     .container
       .row
-        .col.login-container
+        .col.session-container
           %div.shadow-logo
             = link_to "Shadow Trivia", new_user_url 
-          .login-box
+          .session-box
             .flash-container
               = render 'shared/flash_message'
             = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
               .form-group.row
-                .login-label Email
+                .session-label Email
                 = f.text_field :email, type: 'email', autofocus: 'autofocus', placeholder: 'Your email address...'
               .form-group.row
-                .login-label Password
+                .session-label Password
                 = f.password_field :password, placeholder: 'Your password...'  
               .form-group.row
-                .login-submit
+                .session-submit
                   = f.submit 'Log In', class: 'btn-teal'
               .row
                 %h3.text-center.strong Don't have an account?
