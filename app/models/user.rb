@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :role, presence: true, inclusion: { in: ROLES }
   validates :email, :password_digest, :session_token, uniqueness: true
   validates :password, length: {minimum: 6, message: "is too short, minimum 6 characters."}, allow_nil: true, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, allow_nil: true
 
   attr_reader :password
   after_initialize :ensure_session_token
