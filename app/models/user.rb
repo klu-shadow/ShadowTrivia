@@ -20,8 +20,9 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :role, presence: true, inclusion: { in: ROLES }
   validates :email, :password_digest, :session_token, uniqueness: true
-  validates :password, length: {minimum: 6, message: "Password is too short, minimum is 6 characters."}, allow_nil: true
-  
+  validates :password, length: {minimum: 6, message: "is too short, minimum 6 characters."}, allow_nil: true, confirmation: true
+  validates :password_confirmation, presence: true
+
   attr_reader :password
   after_initialize :ensure_session_token
 
@@ -54,6 +55,10 @@ class User < ApplicationRecord
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  # def password_confirmation=(password_confirmation)
+  #   @password_confirmation = password_confirmation
+  # end
 
   def is_password?(password)
     #convert digest string to BCrypt password object
