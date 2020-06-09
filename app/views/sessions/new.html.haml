@@ -1,25 +1,10 @@
--# .hr
-
--# #wrap
--#   .container
--#     .row
--#       .col.login-container
--#         = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
--#           .form-group.row
--#             .login-label Email
--#             = f.text_field :email, type: 'email', autofocus: 'autofocus', placeholder: 'Your email address...'
--#           = f.password_field :password, placeholder: 'Your password...'
--#           = f.submit 'Log In'
-
-
-
--#         =flash[:error]
-
 .hr
   #wrap
     .container
       .row
         .col.login-container
+          %div.shadow-logo
+            = link_to "Shadow Trivia", new_user_url 
           .login-box
             = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
               .form-group.row
@@ -28,7 +13,7 @@
               .form-group.row
                 .login-label Password
                 = f.password_field :password, placeholder: 'Your password...'  
-              .row
-                .form-group
+              .form-group.row
+                .login-submit
                   = f.submit 'Log In'
             = flash[:error]
