@@ -1,0 +1,7 @@
+#flash-message
+  -flash.each do |key, errors|
+    -errors.each do |error|
+      .alert
+        %p
+          %i.icon-remove-circle 
+          #{error}

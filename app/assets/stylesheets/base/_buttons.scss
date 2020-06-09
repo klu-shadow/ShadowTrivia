@@ -1,0 +1,15 @@
+.btn-teal {
+  font-weight: 600;
+  color: $white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient($teal, #006767);
+  border: 1px solid $teal;
+  border-bottom: 2px solid #004343;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn-teal:hover {
+  opacity: 0.8;
+}

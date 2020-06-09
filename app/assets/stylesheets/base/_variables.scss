@@ -1,0 +1,46 @@
+/* grayscale */
+$white:                 #ffffff;
+$off-white:             #f6f6f6;
+$lightest-gray:         #eaeaea;
+$light-gray:            #e3e3e3;
+$medium-gray:           #bfbfbf;
+$gray:                  gray;
+$minimum-gray:          #666666;
+$dark-gray:             #464646;
+$off-black:             #202020;
+$black:                 #000000;
+
+/* brand */
+$green:                 #909602;
+$teal:                  #008080;
+$orange:                #c94a1d;
+
+/* other */
+$light-pink:            #f5d0d0;
+$light-teal:            #cce9e9;
+$light-red:             #ee5f5a;
+$medium-teal:           #00b0b0;
+$medium-red:            #da4f49;
+$dark-red:              #bd362f;
+$darker-red:            #992c26;
+$dark-blue:             #2b85bb;
+
+$error-light-pink:      #eed3d7;
+$error-pink:            #ffe9e9;
+$error-red:             #a02f2d;
+
+/* ---------------------------------------------------
+::Typography
+-----------------------------------------------------*/
+
+$sans-font-family:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif-font-family:       Georgia, "Times New Roman", Times, serif;
+$mono-font-family:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$base-font-family: $sans-font-family;
+$base-font-size: 14px;
+$base-font-size-rem: 1.4rem;
+$base-line-height: 20px;
+
+// Helpers
+.strong { font-weight: bold; }
