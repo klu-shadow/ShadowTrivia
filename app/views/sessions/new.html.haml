@@ -6,6 +6,8 @@
           %div.shadow-logo
             = link_to "Shadow Trivia", new_user_url 
           .login-box
+            .flash-container
+              = render 'shared/flash_message'
             = form_with scope: :user, local: true, url: session_url, method: 'POST', authenticity_token: true do |f|
               .form-group.row
                 .login-label Email
@@ -15,5 +17,8 @@
                 = f.password_field :password, placeholder: 'Your password...'  
               .form-group.row
                 .login-submit
-                  = f.submit 'Log In'
-            = flash[:error]
+                  = f.submit 'Log In', class: 'btn-teal'
+              .row
+                %h3.text-center.strong Don't have an account?
+                %h4.text-center Register for a #{link_to 'User Account', new_user_url, class: 'strong' } or
+                %h4.text-center Proceed as a #{link_to 'Guest', users_url, class: 'strong'}

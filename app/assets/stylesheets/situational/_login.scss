@@ -1,12 +1,11 @@
 .login-container {
   padding-top: 50px;
-
 }
 
 .shadow-logo {
-  background: $logo-orange;
+  background: $orange;
   margin: 10px auto;
-  padding: 10px 18px;
+  padding: 12px 18px;
   width: 320px;
   text-align: center;
   margin-bottom: 20px;
@@ -22,12 +21,15 @@
   -webkit-font-smoothing: antialiased;
   font-size: 24px;
   font-weight: 400;
-
-}
-
-.shadow-logo a:hover {
   text-decoration: none;
 }
+
+.shadow-logo a::after {
+  content: "®";
+  font-size: 10px;
+  vertical-align: super;
+}
+
 
 .login-box {
   width: 500px;
@@ -43,6 +45,13 @@
   border-bottom: 1px solid $off-white;
   margin-bottom: 0;
   padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.login-box h4 {
+  padding-top: 10px;
+  font-size: 16px;
 }
 
 .login-label {
@@ -51,7 +60,7 @@
   font-size: 2rem;
   width: 95px;
   margin-top: 12px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 input[type]:not([type=submit]) {
@@ -67,6 +76,8 @@ input[type]:not([type=submit]) {
 
 input[type]:not([type=submit]):focus {
   outline: none;
+  border-color: $teal;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b3b3;
 }
 
 .login-submit {

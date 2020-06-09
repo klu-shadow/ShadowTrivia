@@ -25,4 +25,22 @@ $dark-red:              #bd362f;
 $darker-red:            #992c26;
 $dark-blue:             #2b85bb;
 
-$logo-orange:             #c9491d;
+$error-light-pink:      #eed3d7;
+$error-pink:            #ffe9e9;
+$error-red:             #a02f2d;
+
+/* ---------------------------------------------------
+::Typography
+-----------------------------------------------------*/
+
+$sans-font-family:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif-font-family:       Georgia, "Times New Roman", Times, serif;
+$mono-font-family:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$base-font-family: $sans-font-family;
+$base-font-size: 14px;
+$base-font-size-rem: 1.4rem;
+$base-line-height: 20px;
+
+// Helpers
+.strong { font-weight: bold; }
