@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  FORMATS = %w[multiple_choice true_or_false]
+  FORMATS = %w[MultipleChoice TrueOrFalse]
   
   belongs_to :user
   
@@ -8,7 +8,7 @@ class Question < ApplicationRecord
 
   validates :body, :choices, :correct_answer, :user_id, presence: true
   validates :type, inclusion: { in: FORMATS }
-  validates :correct_answer, inclusion: { in: :choices }
+  # validates :correct_answer, inclusion: { in: :choices }
   
 
 end

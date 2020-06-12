@@ -16,8 +16,8 @@
 class User < ApplicationRecord
   ROLES = %w[admin standard].freeze
   
-  has_many: :categories
-  has_many: :questions
+  has_many :categories
+  has_many :questions
   
   validates :first_name, :last_name, presence: true, length: { maximum: 25 }
   validates :email, presence: true
