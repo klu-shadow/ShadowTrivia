@@ -1,5 +1,10 @@
 class Category < ApplicationRecord
-  validates :title, presence: true
+
+  has_many :taggings
+  has_many :questions, through: :taggings
+
+  validates :title, :user_id, presence: true
+  
 end
 
 

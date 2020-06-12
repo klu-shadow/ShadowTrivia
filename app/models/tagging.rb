@@ -1,6 +1,10 @@
 class Tagging < ApplicationRecord
+  
   validates :category_id, :question_id, presence: true
-
+  
+  belongs_to :category
+  belongs_to :question
+  
 end
 
 # == Schema Information

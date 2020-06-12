@@ -16,6 +16,9 @@
 class User < ApplicationRecord
   ROLES = %w[admin standard].freeze
   
+  has_many: :categories
+  has_many: :questions
+  
   validates :first_name, :last_name, presence: true, length: { maximum: 25 }
   validates :email, presence: true
   validates :role, presence: true, inclusion: { in: ROLES }
@@ -23,10 +26,9 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, message: "is too short, minimum 6 characters."}, allow_nil: true, confirmation: true
   validates :password_confirmation, presence: true, allow_nil: true
 
+
   attr_reader :password
   after_initialize :ensure_session_token
-
-
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64

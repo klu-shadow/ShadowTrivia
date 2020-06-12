@@ -1,11 +1,15 @@
 class Question < ApplicationRecord
   FORMATS = %w[multiple_choice true_or_false]
   
-  validates :body, :choices, :correct_answer, presence: true
+  belongs_to :user
+  
+  has_many :taggings
+  has_many :categories, through: :taggings
+
+  validates :body, :choices, :correct_answer, :user_id, presence: true
   validates :type, inclusion: { in: FORMATS }
   validates :correct_answer, inclusion: { in: :choices }
-
-
+  
 
 end
 
