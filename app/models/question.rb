@@ -10,7 +10,14 @@ class Question < ApplicationRecord
   validates :type, inclusion: { in: FORMATS }
   # validates :correct_answer, inclusion: { in: :choices }
   
+  # validate block that includes choices
+  # validate :validate_other_description_present
 
+  # def validate_other_description_present
+  #   return unless other_description.blank? && reason == 'other'
+
+  #   errors.add(:base, "must include a description if the 'other' option is selected")
+  # end
 end
 
 
