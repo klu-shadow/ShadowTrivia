@@ -1,0 +1,11 @@
+#wrap
+  .container
+    = form_with scope: @question, local: true, url: questions_url, method: 'POST', authenticity_token: true do |f|
+      = f.text_field :body, placeholder: 'body'
+      = f.text_field :choice_1, placeholder: 'Choice 1'
+      = f.text_field :choice_2, placeholder: 'Choice 2'
+      = f.text_field :choice_3, placeholder: 'Choice 3'
+      = f.text_field :choice_4, placeholder: 'Choice 4'
+    
+
+      = f.submit 'Create New Question', class: 'btn-teal'

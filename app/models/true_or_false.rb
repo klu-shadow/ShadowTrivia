@@ -1,4 +1,9 @@
 class TrueOrFalse < Question
+  after_initialize :populate_choices
+
+  def populate_choices
+    self.choices = ['true', 'false']
+  end
 
 
 end
