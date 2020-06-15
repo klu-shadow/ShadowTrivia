@@ -5,7 +5,7 @@ class TrueOrFalse < Question
     self.choices = ['true', 'false']
   end
 
-
+  
 end
 # == Schema Information
 #

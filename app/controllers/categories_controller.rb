@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_url
     else
-     
+      
     end
   end
 

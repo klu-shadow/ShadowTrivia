@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
       @question = TrueOrFalse.new(question_params)
     end
     @question.user_id = current_user.id 
-
+    
   end
 
 
