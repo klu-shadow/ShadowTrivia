@@ -1,0 +1,5 @@
+#wrap
+  .container
+    = form_with scope: @category, local: true, url: categories_url, method: 'POST', authenticity_token: true do |f|
+      = f.text_field :title, placeholder: 'Title'
+      = f.submit 'Create New Category', class: 'btn-teal'

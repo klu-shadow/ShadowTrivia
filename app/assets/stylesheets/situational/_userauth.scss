@@ -68,7 +68,7 @@
   font-size: 1.8rem;
 }
 
-input[type]:not([type=submit]) {
+.session-container input[type]:not([type=submit]) {
   padding: 14px 30px 14px 8px;
   margin: 0;
   width: 70%;
@@ -79,7 +79,7 @@ input[type]:not([type=submit]) {
   font-weight: 300;
 }
 
-input[type]:not([type=submit]):focus {
+.session-container input[type]:not([type=submit]):focus {
   outline: none;
   border-color: $teal;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b3b3;
