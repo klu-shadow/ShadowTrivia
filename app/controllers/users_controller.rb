@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_not_logged, only: [:new, :create]
+  before_action :ensure_not_logged_in, only: [:new, :create]
 
   def index
     #temporary index to see login/register redirect
