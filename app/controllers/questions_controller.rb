@@ -28,3 +28,5 @@ private
     )
   end
 end
+
+# choices.permit_all
