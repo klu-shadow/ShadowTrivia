@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     when 'MultipleChoice'
       @question = MultipleChoice.build(question_params)
     when 'TrueOrFalse'
-      @question = TrueOrFalse.new(question_params)
+      @question = TrueOrFalse.build(question_params)
     end
     @question.user_id = current_user.id
     if @question.save

@@ -1,6 +1,14 @@
 class TrueOrFalse < Question
   after_initialize :populate_choices
 
+  def self.build(params)
+    question = TrueOrFalse.new()
+    question.body = params[:body]
+    correct_index = params[:correct_answer].to_i
+    question.correct_answer = question.choices[correct_index]
+    return question
+  end
+
   def populate_choices
     self.choices = ['true', 'false']
   end
