@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :new, :destroy]
   resources :categories, only: [:create, :new, :index]
   resources :questions, only: [:create, :new]
+  
 end

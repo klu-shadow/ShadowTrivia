@@ -2,10 +2,14 @@
   .container
     = form_with scope: @question, local: true, url: questions_url, method: 'POST', authenticity_token: true do |f|
       = f.text_field :body, placeholder: 'body'
+      = f.radio_button :correct_answer, value: 0
       = f.text_field :choice_1, placeholder: 'Choice 1'
+      = f.radio_button :correct_answer, value: 1
       = f.text_field :choice_2, placeholder: 'Choice 2'
+      = f.radio_button :correct_answer, value: 2
       = f.text_field :choice_3, placeholder: 'Choice 3'
+      = f.radio_button :correct_answer, value: 3
       = f.text_field :choice_4, placeholder: 'Choice 4'
-    
-
+      %br 
+      = f.select :type, [['Multiple Choice', 'MultipleChoice'], ['True or False', 'TrueOrFalse']]
       = f.submit 'Create New Question', class: 'btn-teal'

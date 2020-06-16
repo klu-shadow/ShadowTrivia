@@ -8,17 +8,23 @@ class QuestionsController < ApplicationController
     question_type = params[:question][:type]
     case question_type
     when 'MultipleChoice'
-      @question = MultipleChoice.new(question_params)
+      @question = MultipleChoice.build(question_params)
     when 'TrueOrFalse'
       @question = TrueOrFalse.new(question_params)
     end
-    @question.user_id = current_user.id 
+    @question.user_id = current_user.id
+    if @question.save
+      redirect_to categories_url
+    end
     
   end
 
 
 private
   def question_params
-    params.require(:question).permit(:body, :choices, :correct_answer, :category_id, :type)
+    params.require(:question).permit(
+      :body, :correct_answer, :category_id, :type, :choice_1, :choice_2,
+      :choice_3, :choice_4
+    )
   end
 end
