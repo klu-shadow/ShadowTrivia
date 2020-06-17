@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_145001) do
+ActiveRecord::Schema.define(version: 2020_06_17_135846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 2020_06_12_145001) do
     t.integer "user_id", null: false
     t.index ["title"], name: "index_categories_on_title", unique: true
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_ids", default: [], array: true
+    t.integer "current_streak", default: 0
+    t.integer "max_streak", default: 0
+    t.integer "current_incorrect_streak", default: 0
+    t.integer "max_incorrect_streak", default: 0
+    t.string "user_answers", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_ids"], name: "index_games_on_question_ids"
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
