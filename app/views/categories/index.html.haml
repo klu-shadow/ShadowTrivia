@@ -1,3 +1,5 @@
 = render 'shared/nav'
 #wrap
-  categories index
+  .container
+    - @categories.each do |category|
+      = button_to category.title, category_games_url(category)

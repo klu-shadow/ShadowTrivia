@@ -1,0 +1,27 @@
+= render 'shared/nav'
+#wrap
+  .container
+    .row
+      Current Streak:
+      = @game.current_streak
+    .row
+      Best Streak:
+      = @game.max_streak
+    .row 
+      Current Incorrect Streak:
+      = @game.current_incorrect_streak
+    .row
+      Best Incorrect Streak: 
+      = @game.max_incorrect_streak
+    %br
+    .row
+      = @question.body
+    .row
+      %ul
+        - @question.choices.each do |choice|
+          %li
+            = form_for @game, url: { action: :update }, authenticity_token: true do |f|
+              = f.hidden_field :user_answer, value: choice
+              = f.submit choice
+    %br
+    

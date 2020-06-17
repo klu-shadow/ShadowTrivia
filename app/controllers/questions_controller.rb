@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     end
     @question.user_id = current_user.id
     if @question.save
-      redirect_to categories_url
+      redirect_to new_question_tagging_url(@question)
     end
     
   end

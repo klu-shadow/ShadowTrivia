@@ -5,6 +5,7 @@ RSpec.describe Game, type: :model do
 end
 
 
+
 # == Schema Information
 #
 # Table name: games
@@ -19,5 +20,6 @@ end
 #  user_answers             :string          default("{}")
 #  created_at               :datetime        not null
 #  updated_at               :datetime        not null
+#  question_number          :integer(4)      default("0")
 #
 
