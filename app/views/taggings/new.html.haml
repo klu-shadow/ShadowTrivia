@@ -1,0 +1,9 @@
+= render 'shared/nav'
+#wrap
+  .container
+    = form_with scope: :tagging, local: true, url: question_taggings_url, method: 'POST', authenticity_token: true do |f|
+      - @categories.each do |category|
+        = check_box_tag "tagging[category][#{category.title}]", category.id
+        = category.title
+      %br
+      = f.submit 'Create Tags', class: 'btn-teal'
