@@ -1,12 +1,19 @@
 %nav.navbar
   .navbar-inner
     .container
-      .row
-        .col
-          .logo
-            = link_to image_tag(shadow_trivia_logo), categories_url
-        .col
-          = link_to 'Categories', categories_url
-        .col
-          = link_to 'New Question', new_question_url
+      .logo
+        = link_to image_tag(shadow_trivia_logo), categories_url
+      .nav-item
+        = link_to 'Leaderboard', categories_url
+      .nav-item
+        %a.drop-down 
+          %i.fas.fa-chevron-down
+          Browse
+      .welcome
+        %strong
+          %i.fas.fa-user
+          #{current_user.first_name} #{current_user.last_name} /
+        - if current_user.logged_in?
+          %strong
+            = link_to 'Sign Out', session_url, method: 'DELETE', id: 'logout'
 .hr
