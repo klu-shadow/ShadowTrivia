@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :categories, only: [:create, :new, :index] do
     resources :games, only: [:create]
+    resources :highscores, only: [:index]
   end
   
   resources :questions, only: [:create, :new] do 

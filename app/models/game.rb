@@ -67,7 +67,7 @@ class Game < ApplicationRecord
         )
     end
 
-    if current_highscore && current_highscore.score > self.score
+    if current_highscore && current_highscore.score < self.score
       current_highscore.update(score: self.score)
     end
   end

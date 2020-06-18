@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     @game.user_answers << game_params[:user_answer]
     @game.check_answer
     if @game.done
-      redirect_to categories_url
+      redirect_to category_highscores_url(category_id: @game.category_id)
     else
       redirect_to game_url(@game)
     end

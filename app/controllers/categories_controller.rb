@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(:questions).all.order(title: 'ASC')
   end
-  
+
   def new 
     @category = Category.new()
   end

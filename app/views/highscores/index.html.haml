@@ -1,0 +1,28 @@
+= render 'shared/nav'
+#wrap
+  = render 'shared/masthead', title: 'High Scores', subtitle: ''
+  .container
+    .content-box
+      .content-box-header
+        %h2 #{@highscores[0].category.title} Leaderboard
+      .content-box-content.leaderboard
+        .row
+          .col 
+            %strong Rank
+          .col 
+            %strong Name
+          .col 
+            %strong Score 
+          .col 
+            %strong Date
+        - @highscores.each_with_index do |highscore, idx|
+          .row
+            .col
+              = idx+1
+            .col 
+              = highscore.user.first_name
+            .col
+              = highscore.score 
+            .col 
+              = highscore.updated_at.to_date
+      

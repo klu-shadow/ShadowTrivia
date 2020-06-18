@@ -1,0 +1,10 @@
+.leaderboard {
+  .col {
+    display: inline-block;
+    margin-left: 40px;
+    width: 120px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
