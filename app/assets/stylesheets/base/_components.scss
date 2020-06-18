@@ -63,8 +63,16 @@
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b3b3;
     }
 
+    input[type=checkbox] {
+      margin: 0px 5px 0px 0px;
+    }
+
     input[type=radio] {
       margin-right: 5px;
+    }
+
+    #label-check {
+      display: inline-block;
     }
   }
 }

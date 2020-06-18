@@ -1,9 +1,15 @@
 = render 'shared/nav'
 #wrap
+  = render 'shared/masthead', title: 'Tag Questions to Categories', subtitle: ''
   .container
-    = form_with scope: :tagging, local: true, url: question_taggings_url, method: 'POST', authenticity_token: true do |f|
-      - @categories.each do |category|
-        = check_box_tag "tagging[category][#{category.title}]", category.id
-        = category.title
-      %br
-      = f.submit 'Create Tags', class: 'btn-teal'
+    .content-box
+      .content-box-header
+        %h2 Tag to Categories (check associations)
+      .content-box-content
+        = form_with scope: :tagging, local: true, url: question_taggings_url, method: 'POST', authenticity_token: true do |f|
+          - @categories.each do |category|
+            .row.align-center
+              = check_box_tag "tagging[category][#{category.title}]", category.id
+              = f.label "category_#{category.title}", category.title, id: 'label-check'
+          %br
+          = f.submit 'Create Tags', class: 'btn-teal'

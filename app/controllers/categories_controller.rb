@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:new, :create]
   def index
-    @categories = Category.all
+    @categories = Category.includes(:questions).all.order(title: 'ASC')
   end
-
+  
   def new 
     @category = Category.new()
   end

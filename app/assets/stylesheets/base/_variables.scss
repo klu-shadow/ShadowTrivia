@@ -45,3 +45,7 @@ $base-line-height: 20px;
 // Helpers
 .strong { font-weight: bold; }
 .block { display: block; }
+.align-center {
+  display: flex;
+  align-items: center;
+}
