@@ -33,5 +33,38 @@
     background-clip: border-box;
     box-sizing: border-box;
 
+    label {
+      display: block;
+      margin: 5px 0;
+
+    }
+
+    select {
+      outline: none;
+      padding: 10px 8px;
+      background: #fdfdfd;
+      border: 1px solid #cacaca;
+      border-radius: 5px;
+      width: 80%;
+    }
+
+    input[type=text] {
+      padding: 10px 8px;
+      background: #fdfdfd;
+      border: 1px solid #cacaca;
+      border-radius: 5px;
+      width: 80%;
+      margin-bottom: 5px;
+    }
+
+    input[type=text]:focus, select:focus {
+      outline: none;
+      border-color: $teal;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #00b3b3;
+    }
+
+    input[type=radio] {
+      margin-right: 5px;
+    }
   }
 }

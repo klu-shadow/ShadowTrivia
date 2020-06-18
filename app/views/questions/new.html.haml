@@ -1,21 +1,29 @@
 = render 'shared/nav'
 #wrap
+  = render 'shared/masthead', title: 'New Question Template', subtitle: ""
   .container
-    = form_with scope: @question, local: true, url: questions_url, method: 'POST', authenticity_token: true do |f|
-      .row.question-type 
-        = f.select :type, [['Multiple Choice', 'MultipleChoice'], ['True or False', 'TrueOrFalse']]
-      .row
-        = f.text_field :body, placeholder: 'body'
-      .row.multiple-choice
-        - 4.times do |i|
+    .content-box
+      .content-box-header
+        %h2 Question Template 
+      .content-box-content
+        = form_with scope: @question, local: true, url: questions_url, method: 'POST', authenticity_token: true do |f|
+          .row.question-type
+            = f.label :type, 'Type of Question'
+            = f.select :type, [['Multiple Choice', 'MultipleChoice'], ['True or False', 'TrueOrFalse']]
           .row
-            = f.radio_button :correct_answer, i
-            = f.text_field "choice_#{i+1}", placeholder: "Choice #{i+1}"
-      %br
-      .row.true-or-false
-        %span.choice-label True
-        = f.radio_button :correct_answer, 0 
-        %span.choice-label False 
-        = f.radio_button :correct_answer, 1
-      %br
-      = f.submit 'Create New Question', class: 'btn-teal'
+            = f.label :body, 'Question'
+            = f.text_field :body, placeholder: 'What is 1 + 1 = ?'
+          .row.multiple-choice
+            = f.label 'choice_1', 'Choices (select correct answer)'
+            - 4.times do |i|
+              .row
+                = f.radio_button :correct_answer, i
+                = f.text_field "choice_#{i+1}", placeholder: "Choice #{i+1}"
+          .row.true-or-false
+            = f.label :correct_answer, 'Correct Answer'
+            %span.choice-label True
+            = f.radio_button :correct_answer, 0 
+            %span.choice-label False 
+            = f.radio_button :correct_answer, 1
+          %br
+          = f.submit 'Create New Question', class: 'btn-teal'
