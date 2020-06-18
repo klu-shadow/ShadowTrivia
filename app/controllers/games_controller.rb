@@ -1,10 +1,14 @@
 class GamesController < ApplicationController
+  before_action :ensure_logged_in, only: [:create, :show, :update]
 
   def create
     category_id = params[:category_id]
     @game = Game.build(current_user.id, category_id)
-    if @game.save
+    if @game.save && @game.question_ids.length > 4
       redirect_to game_url(@game)
+    else 
+      flash[:errors] = ["Please populate category with at least 5 questions"]
+      redirect_to categories_url
     end
   end
 

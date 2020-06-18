@@ -2,9 +2,13 @@
 #wrap
   = render 'shared/masthead', title: 'Shadow Trivia', subtitle: 'Categories (Pick a category to play)' 
   .container
+    .flash-container.inpage
+      = render 'shared/flash_message'
     .content-box
       .content-box-header
         %h2 Categories
       .content-box-content
-        - @categories.each do |category|
-          = button_to category.title, category_games_url(category)
+        %ul.categories
+          - @categories.each do |category|
+            %li
+              = link_to "#{category.title} (#{category.questions.length})", category_games_url(category), method: 'POST'
