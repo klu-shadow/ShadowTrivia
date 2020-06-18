@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :categories
   has_many :questions
   has_many :games
+  has_one :highscore, foreign_key: :user_id, class_name: 'HighScore'
+    
   
   validates :first_name, :last_name, presence: true, length: { maximum: 25 }
   validates :email, presence: true

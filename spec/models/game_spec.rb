@@ -6,6 +6,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: games
@@ -21,5 +22,8 @@ end
 #  created_at               :datetime        not null
 #  updated_at               :datetime        not null
 #  question_number          :integer(4)      default("0")
+#  category_id              :integer(4)      not null
+#  done                     :boolean         default("false")
+#  score                    :integer(4)      default("0")
 #
 

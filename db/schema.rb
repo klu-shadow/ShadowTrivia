@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_161003) do
+ActiveRecord::Schema.define(version: 2020_06_18_164812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 2020_06_18_161003) do
     t.index ["question_ids"], name: "index_games_on_question_ids"
     t.index ["score"], name: "index_games_on_score"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "high_scores", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.integer "score", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_high_scores_on_category_id"
+    t.index ["game_id"], name: "index_high_scores_on_game_id", unique: true
+    t.index ["score"], name: "index_high_scores_on_score"
+    t.index ["user_id"], name: "index_high_scores_on_user_id", unique: true
   end
 
   create_table "questions", force: :cascade do |t|

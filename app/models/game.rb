@@ -52,10 +52,28 @@ class Game < ApplicationRecord
       self.question_number += 1
     else 
       self.done = true
+      self.submit_highscore
+    end
+  end
+
+  def submit_highscore
+    current_highscore = HighScore.find_by(user_id: self.user_id)
+    if !current_highscore
+      HighScore.create(
+        user_id: self.user_id, 
+        category_id: self.category_id, 
+        game_id: self.id,
+        score: self.score
+        )
+    end
+
+    if current_highscore && current_highscore.score > self.score
+      current_highscore.update(score: self.score)
     end
   end
 
 end
+
 
 
 
@@ -74,5 +92,8 @@ end
 #  created_at               :datetime        not null
 #  updated_at               :datetime        not null
 #  question_number          :integer(4)      default("0")
+#  category_id              :integer(4)      not null
+#  done                     :boolean         default("false")
+#  score                    :integer(4)      default("0")
 #
 
