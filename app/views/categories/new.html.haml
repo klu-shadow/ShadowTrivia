@@ -1,6 +1,14 @@
 = render 'shared/nav'
 #wrap
+  = render 'shared/masthead', title: 'New Category Template', subtitle: ""
   .container
-    = form_with scope: @category, local: true, url: categories_url, method: 'POST', authenticity_token: true do |f|
-      = f.text_field :title, placeholder: 'Title'
-      = f.submit 'Create New Category', class: 'btn-teal'
+    .content-box
+      .content-box-header
+        %h2 Category Template
+      .content-box-content
+        = form_with scope: @category, local: true, url: categories_url, method: 'POST', authenticity_token: true do |f|
+          = f.label :title, 'Title'
+          = f.text_field :title, placeholder: 'Title'
+          .row
+            %br
+            = f.submit 'Create New Category', class: 'btn-teal'
