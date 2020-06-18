@@ -1,6 +1,5 @@
 class HighScore < ApplicationRecord
   validates :user_id, :category_id, :game_id, :score, presence: true
-  validates :user_id, :game_id, uniqueness: true
 
   belongs_to :user 
   belongs_to :category 

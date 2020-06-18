@@ -57,8 +57,9 @@ class Game < ApplicationRecord
   end
 
   def submit_highscore
-    current_highscore = HighScore.find_by(user_id: self.user_id)
+    current_highscore = HighScore.find_by(user_id: self.user_id, category_id: self.category_id)
     if !current_highscore
+      p 'IT HIT HERERERERERERERERERERERERERERERERERERERERERERERE'
       HighScore.create(
         user_id: self.user_id, 
         category_id: self.category_id, 
