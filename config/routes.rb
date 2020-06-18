@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :taggings, only: [:create, :new]
   end
 
+  resources :highscores, only: [:create]
+  get '/highscores', to: 'highscores#main'
+
   resources :games, only: [:show, :update]
   root to:'sessions#new'
 end

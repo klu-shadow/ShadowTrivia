@@ -6,4 +6,9 @@ class HighscoresController < ApplicationController
       .order(score: 'DESC')
       .limit(50)
   end
+
+  def main
+    @categories = Category.all 
+
+  end
 end

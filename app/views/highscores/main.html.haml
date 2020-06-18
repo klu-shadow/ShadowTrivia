@@ -1,0 +1,13 @@
+= render 'shared/nav'
+#wrap 
+  = render 'shared/masthead', title: 'Leaderboard', subtitle: ''
+  .container 
+    .content-box 
+      .content-box-header 
+        %h2 Choose Category 
+      .content-box-content 
+        %ul.categories
+        - @categories.each do |category|
+          %li
+            = link_to category.title, category_highscores_url(category_id: category.id)
+
