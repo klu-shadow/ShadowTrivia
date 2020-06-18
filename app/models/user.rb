@@ -18,6 +18,7 @@ class User < ApplicationRecord
   
   has_many :categories
   has_many :questions
+  has_many :games
   
   validates :first_name, :last_name, presence: true, length: { maximum: 25 }
   validates :email, presence: true

@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
 
   has_many :taggings
+  has_many :games
   has_many :questions, through: :taggings
 
   validates :title, :user_id, presence: true

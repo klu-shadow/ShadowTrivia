@@ -1,27 +1,34 @@
 = render 'shared/nav'
 #wrap
+  = render 'shared/masthead', title: 'Shadow Trivia', subtitle: 'Play Game'
   .container
-    .row
-      Current Streak:
-      = @game.current_streak
-    .row
-      Best Streak:
-      = @game.max_streak
-    .row 
-      Current Incorrect Streak:
-      = @game.current_incorrect_streak
-    .row
-      Best Incorrect Streak: 
-      = @game.max_incorrect_streak
-    %br
-    .row
-      = @question.body
-    .row
-      %ul
-        - @question.choices.each do |choice|
-          %li
-            = form_for @game, url: { action: :update }, authenticity_token: true do |f|
-              = f.hidden_field :user_answer, value: choice
-              = f.submit choice
-    %br
-    
+    .content-box
+      .content-box-header
+        %h2 Question ##{@game.question_number + 1}
+      .content-box-content
+        .row
+          %strong Current Streak:
+          = @game.current_streak
+        .row
+          %strong Best Streak:
+          = @game.max_streak
+        .row 
+          %strong Current Incorrect Streak:
+          = @game.current_incorrect_streak
+        .row
+          %strong Best Incorrect Streak: 
+          = @game.max_incorrect_streak
+        .row 
+          %strong Score: 
+          = @game.score
+        %br
+        .row.question
+          = @question.body
+        .row
+          %ul.choices
+            - @question.choices.each do |choice|
+              %li
+                = form_for @game, url: { action: :update }, authenticity_token: true do |f|
+                  = f.hidden_field :user_answer, value: choice
+                  = f.submit choice
+        

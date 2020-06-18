@@ -18,7 +18,9 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.user_answers << game_params[:user_answer]
     @game.check_answer
-    if @game.save
+    if @game.done
+      redirect_to categories_url
+    else
       redirect_to game_url(@game)
     end
   end

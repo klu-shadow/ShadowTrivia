@@ -1,8 +1,11 @@
 class Game < ApplicationRecord
+  belongs_to :user 
+  belongs_to :category
+
   validates :user_id, presence: true
 
   def self.build(user_id, category_id)
-    game = Game.new(user_id: user_id)
+    game = Game.new(user_id: user_id, category_id: category_id)
     game.generate_questions_list(category_id)
     game
   end
@@ -16,15 +19,27 @@ class Game < ApplicationRecord
   def check_answer
     correct_answer = Question.find(self.question_ids[self.question_number]).correct_answer
     if (correct_answer == self.user_answers.last)
-      self.current_incorrect_streak = 0
-      self.current_streak += 1
+      self.update_correct_answer
     else 
-      self.current_incorrect_streak += 1
-      self.current_streak = 0
+      self.update_incorrect_answer
     end
     self.update_max_streaks
     self.increment_question_number
     self.save
+  end
+
+  def update_correct_answer 
+    self.current_incorrect_streak = 0
+    self.current_streak += 1
+    # 200 + 10 times streak bonus per correct to score
+    self.score += 200 + (self.current_streak-1) * 10
+  end
+
+  def update_incorrect_answer
+    self.current_incorrect_streak += 1
+    self.current_streak = 0
+    # 100 - 20 times incorrect streak per wrong answer to score
+    self.score -= 100 - (self.current_incorrect_streak-1) * 20
   end
 
   def update_max_streaks
@@ -33,7 +48,11 @@ class Game < ApplicationRecord
   end
 
   def increment_question_number
-    self.question_number += 1
+    if self.question_number < self.question_ids.length-1
+      self.question_number += 1
+    else 
+      self.done = true
+    end
   end
 
 end
