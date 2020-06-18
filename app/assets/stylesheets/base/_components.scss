@@ -1,0 +1,37 @@
+.content-box {
+  margin: 20px 0 20px 0;
+  background: #ececec;
+  border: 1px solid darken($off-white, 15%);
+  border-radius: 3px;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, .50);
+
+  .content-box-header {
+    overflow: visible;
+    vertical-align: top;
+    display: block;
+    height: auto;
+    padding: 15px;
+    min-height: 20px;
+    background: darken($off-white, 1%);
+    border-bottom: 1px solid darken($off-white, 12%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-clip: border-box;
+    background-image: linear-gradient(to top, $lightest-gray 0%, $off-white 100%);
+    
+    h2 {
+      color: $off-black;
+      line-height: normal;
+    }
+  }
+
+  .content-box-content {
+    background: #fff;
+    padding: 15px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-clip: border-box;
+    box-sizing: border-box;
+
+  }
+}

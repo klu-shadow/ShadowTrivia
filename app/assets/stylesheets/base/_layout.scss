@@ -44,3 +44,19 @@ div.hr {
   margin: 0;
   padding: 0;
 }
+
+// Header
+
+header.masthead {
+  background: #f2f2ea;
+  border-bottom: 1px solid #e3e5d0;
+  padding: 0;
+  margin: 0;
+  display: block;
+
+  h1 {
+    padding: 15px 0 10px;
+    line-height: 1em;
+    small { color: #6c6c6c; }
+  }
+}
