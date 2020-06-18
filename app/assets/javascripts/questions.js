@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const multipleChoiceForm = document.getElementsByClassName('multiple-choice')[0];
   const trueOrFalseForm = document.getElementsByClassName('true-or-false')[0];
   forms = [multipleChoiceForm, trueOrFalseForm];
+  if (!questionType) return;
   hideExceptSelected()
-
   questionType.addEventListener('change', e => {
    hideExceptSelected()
   })

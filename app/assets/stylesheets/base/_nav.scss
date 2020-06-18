@@ -21,7 +21,7 @@
   display: inline-block;
   font-size: 1.2em;
 
-    a {
+    > a {
       text-decoration: none;
       color: #d3d3d3;
       padding: 6px 10px;
@@ -48,3 +48,123 @@
   color: $teal;
 }
 
+.drop {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  padding: 5px 0;
+  min-width: 160px;
+  background: $white;
+  z-index: 99;
+  color: black;
+  border-radius: 6px 6px;
+  border: 1px solid $light-gray;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  animation-name: fadeInDown;
+  animation-duration: .35s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+
+  li {
+    border-bottom: 1px solid #f3f3f3;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    
+    &:last-child { border-bottom: 0 }
+
+    a {
+      display: block;
+      color: $teal;
+      font-weight: normal;
+      white-space: nowrap;
+      text-decoration: none;
+      border-radius: 20px;
+      padding: 8px 10px;
+      font-size: 15.4px;
+      width: 100%;
+
+        &:hover {
+          background: rgb(0, 179, 179);
+          color: $white;
+        }
+    }
+  }
+
+  .show { display: block; }
+}
+
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+	}
+	
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-moz-transform: translateY(-20px);
+	}
+	
+	100% {
+		opacity: 1;
+		-moz-transform: translateY(0);
+	}
+}
+
+@-ms-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-ms-transform: translateY(-20px);
+	}
+	
+	100% {
+		opacity: 1;
+		-ms-transform: translateY(0);
+	}
+}
+
+@-o-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-ms-transform: translateY(-20px);
+	}
+	
+	100% {
+		opacity: 1;
+		-ms-transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	-moz-animation-name: fadeInDown;
+	-ms-animation-name: fadeInDown;
+	-o-animation-name: fadeInDown;
+	animation-name: fadeInDown;
+}

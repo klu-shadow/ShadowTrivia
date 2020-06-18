@@ -5,10 +5,11 @@
         = link_to image_tag(shadow_trivia_logo), categories_url
       .nav-item
         = link_to 'Leaderboard', categories_url
-      .nav-item
-        %a.drop-down 
+      .nav-item.drop
+        %a
           %i.fas.fa-chevron-down
           Browse
+        = render 'shared/nav_drop_down'
       .welcome
         %strong
           %i.fas.fa-user
