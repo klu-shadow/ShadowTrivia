@@ -20,11 +20,13 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_not_logged_in
-    redirect_to users_url if logged_in? 
+    redirect_to categories_url if logged_in? 
   end
 
   def ensure_logged_in
-    flash[:errors] = ['Sorry, you must be logged in to perform this action.']
-    redirect_to new_session_url unless logged_in?
+    unless logged_in?
+      flash[:errors] = ['Sorry, you must be logged in to perform this action.']
+      redirect_to new_session_url
+    end
   end
 end

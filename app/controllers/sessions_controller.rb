@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
     if user
       login!(user)
-      redirect_to users_url
+      redirect_to categories_url
     else
       flash[:errors] = ["Invalid email address or password."]
       redirect_to new_session_url

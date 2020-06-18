@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, only: [:create, :new, :index]
+  resources :users, only: [:create, :new]
   resource :session, only: [:create, :new, :destroy]
   
   resources :categories, only: [:create, :new, :index] do
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
 
   resources :games, only: [:show, :update]
+  root to:'sessions#new'
 end
